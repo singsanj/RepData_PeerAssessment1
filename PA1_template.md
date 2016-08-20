@@ -71,7 +71,7 @@ stepsPerDay <- tapply(activityData$steps, activityData$date, sum, na.rm=TRUE)
 qplot(stepsPerDay, xlab='Total steps per day', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
-![](figure/unnamed-chunk-6-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 2.Calculate and report the mean and median total number of steps taken per day
 
@@ -101,7 +101,7 @@ ggplot(data=averageStepsPerTimeBlock, aes(x=interval, y=meanSteps)) +
     ylab("average number of steps taken") 
 ```
 
-![](figure/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -145,7 +145,7 @@ stepsPerDayImputed <- tapply(activityDataImputed$steps, activityDataImputed$date
 qplot(stepsPerDayImputed, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
-![](figure/unnamed-chunk-13-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
 
 4.2 Calculate and report the mean and median total number of steps taken per day.
@@ -159,6 +159,8 @@ stepsPerDayMedianImputed <- median(stepsPerDayImputed)
 
 - Mean (Imputed): 1.0766189\times 10^{4}
 - Median (Imputed): 1.0766189\times 10^{4}
+
+Mean and median values are higher after imputing missing data. The reason is that in the original data, there are some days with steps values NA for any interval. The total number of steps taken in such days are set to 0s by default. However, after replacing missing steps values with the mean steps of associated interval value, these 0 values are removed from the histogram of total number of steps taken each day.
 
 ##Are there differences in activity patterns between weekdays and weekends?
 
@@ -184,7 +186,7 @@ ggplot(averagedActivityDataImputed, aes(interval, steps)) +
     ylab("avarage number of steps")
 ```
 
-![](figure/unnamed-chunk-16-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 
 
